@@ -28,7 +28,8 @@ urlpatterns = [
     
     #방법2 : 2개의 파일 작성
     
-    path('livepolls/', include('livepolls.urls')),
+    path('livepolls/', include('livepolls.urls')), # 앱1 : 설문관리 앱
+    path('tempapps/', include('tempapps.urls')), # 앱2 : 템플릿 문법 앱
 ]
 '''
     방법 1의 경우 Url파턴이 변경되면 모든 항목을 수정해야 하므로 불편하다.
