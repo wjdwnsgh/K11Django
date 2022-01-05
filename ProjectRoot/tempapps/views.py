@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
-from tempapps.forms import QuestionForm, WriteForm
+from tempapps.forms import QuestionForm 
+from tempapps.forms import WriteForm 
 from django.http import HttpResponseRedirect
 
 
@@ -74,12 +75,10 @@ def thanks(request):
 
 def boardWrite(request):
     if request.method == 'POST':
-        form = WriteForm(request.POST)
-        if form.is_valid():
-            user_name = form.changed_data['user_name']
-            
-            return render(request, 'thanks.html', {'user_name':user_name})
+        template_path = 'boardWrite.html'
     else:
         form = WriteForm()
-    return render(request, 'boardWrite.html', {'form':form})
+        template_path = 'boardWrite.html'
+        
+    return render(request, template_path, {'form':form})
     
